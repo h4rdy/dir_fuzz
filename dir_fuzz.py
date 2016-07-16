@@ -35,14 +35,14 @@ class Fuzz(threading.Thread):
 				url = self.dirqueue.get_nowait()
 				results = self.fuzz_start(url)
 				if results.status_code == requests.codes.ok:
-					mutex.acquire()
+					mutex.acquire(1)
 					print colored('[%s]:','green')% results.status_code,url
-					mutex.release()
+					mutex.release(1)
 					dir_exists.append(url)
 				else:
-					mutex.acquire()
+					mutex.acquire(1)
 					print colored('[%s]:','red')% results.status_code,url
-					mutex.release()
+					mutex.release(1)
 				self.dirqueue.task_done()
 			except:
 				pass
