@@ -3,7 +3,7 @@
 import threading
 import Queue
 import sys
-import requests
+import lib.requests as requests
 from lib.termcolor import colored
 
 #配置
@@ -58,8 +58,8 @@ def dir_fuzz(domain, file_type, dic):
     use_dic.close()
     threadList = []
     for i in range (threads_num):
-        t = Fuzz(dirqueue)
-        threadList.append(t)
+        threadList.append(Fuzz(dirqueue))
+    for t in threadList:
         t.start()
     for t in threadList:
         t.join()
