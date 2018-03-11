@@ -1,9 +1,9 @@
-##dir_fuzz
+## dir_fuzz
 参考ring04h多线程目录文件扫描
 
 通过状态码200判断文件是否存在,403默认为不存在
 
-##用法
+## 用法
 
 默认20个线程
 
@@ -18,7 +18,7 @@ python dir_fuzz.py www.baidu.com php  /dics/directory-list-1.0.txt
 ##修改配置
 
 ```
-#配置
+## 配置
 dic = './dics/dirs.txt'  #字典
 timeout = 3       #超时时间
 threads_num = 20  #线程
@@ -28,5 +28,5 @@ headers = {
 	      'Referer' : 'http://www.baidu.com'
           'Mark': 'dirfuzz'
           }
-cookies = {} #自定义cookies
+cookies = {} # 自定义cookies
 ```
